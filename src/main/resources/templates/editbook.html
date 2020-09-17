@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Booklist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Edit book</h1>
+
+    <div>
+        <form th:object="${book}" th:action="@{../save}" action="#" method="post">
+            <input type="hidden" id="id" th:field="*{id}"/>
+            Title:<input type="text" id="title" th:field="*{title}" /> <br>
+            Author:<input type="text" id="author" th:field="*{author}" /> <br>
+            Year:<input type="text" id="year" th:field="*{year}" /> <br>
+            ISBN:<input type="text" id="isbn" th:field="*{isbn}" /> <br>
+            Price:<input type="text" id="price" th:field="*{price}" /> <br>
+			 Category:<select id="catlist" th:field="*{category}" class="form-control">
+       			<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+    		</select>
+
+            <input type="submit" value="Save"></input>
+        </form>
+    </div>
+</body>
