@@ -25,6 +25,11 @@ import com.example.bookstore.model.CategoryRepository;
 		@Autowired
 		private CategoryRepository drepository;
 		
+		@RequestMapping(value="/login")
+		public String login() {
+			return "login";
+		} 
+		
 		 // RESTful service to get all books
 	    @GetMapping(value="/books")
 	    public @ResponseBody List<Book> bookListRest() {	
